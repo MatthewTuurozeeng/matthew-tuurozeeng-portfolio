@@ -30,7 +30,7 @@ const projectsData: Project[] = [
     image: '/assets/images/projectImages/Personal_Portfolio.png',
     images: ['/assets/images/projectImages/Personal_Portfolio.png'],
     screenshots: [],
-    githubUrl: 'https://github.com/MatthewTuurozeeng/My_Portfolio_Website',
+    githubUrl: 'https://github.com/MatthewTuurozeeng/matthew-tuurozeeng-portfolio',
     liveUrl: '', // https://matthew-portfolio.dev
     featured: true,
     published: true,
