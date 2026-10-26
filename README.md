@@ -4,7 +4,7 @@
 ---
 
 ## Live Demo
-[Matthew Tuurozeeng — Portfolio](https://matthew-tuurozeeng-digital-portfoli.vercel.app)
+[Matthew Tuurozeeng — Portfolio](https://matthew-tuurozeeng.vercel.app)
 
 ## Overview
 This project is a **full-stack personal professional platform** designed to serve as my long-term digital identity as a Computer Science professional.
@@ -98,130 +98,20 @@ The platform allows dynamic content management (projects, fellowships, CVs, prin
 ---
 
 ## Project Structure
-```text
-├── README.md
-├── backend
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── src
-│   │   ├── config
-│   │   │   ├── cloudinary.ts
-│   │   │   └── database.ts
-│   │   ├── controllers
-│   │   │   ├── AuthController.ts
-│   │   │   ├── CVcontroller.ts
-│   │   │   ├── ContactController.ts
-│   │   │   ├── ImpactController.ts
-│   │   │   ├── ProfileController.ts
-│   │   │   └── ProjectController.ts
-│   │   ├── middleware
-│   │   │   ├── Auth.ts
-│   │   │   ├── ErrorHandler.ts
-│   │   │   └── Upload.ts
-│   │   ├── models
-│   │   │   ├── CV.ts
-│   │   │   ├── Contact.ts
-│   │   │   ├── Impact.ts
-│   │   │   ├── Profile.ts
-│   │   │   ├── Project.ts
-│   │   │   └── User.ts
-│   │   ├── routes
-│   │   │   ├── AuthRoute.ts
-│   │   │   ├── CVroute.ts
-│   │   │   ├── ContactRoute.ts
-│   │   │   ├── ImpactRoute.ts
-│   │   │   ├── ProfileRoute.ts
-│   │   │   ├── ProjectRoute.ts
-│   │   │   └── UploadRoute.ts
-│   │   ├── scripts
-│   │   │   └── SeedData.ts
-│   │   ├── server.ts
-│   │   ├── uploads
-│   │   │   └── porfolio_project_image.png
-│   │   └── utils
-│   │       ├── EmailService.ts
-│   │       ├── SeedAdmin.ts
-│   │       ├── seedData.ts
-│   │       └── testEmail.ts
-│   └── tsconfig.json
-└── frontend
-    ├── README.md
-    ├── eslint.config.ts
-    ├── index.html
-    ├── package-lock.json
-    ├── package.json
-    ├── public
-    │   ├── assets
-    │   │   ├── images
-    │   │   │   ├── backgroundImage
-    │   │   │   │   ├── Hero-Imag.svg
-    │   │   │   │   ├── hero-image.svg
-    │   │   │   │   └── hero_im.jpeg
-    │   │   │   ├── impactImages
-    │   │   │   ├── profileImage
-    │   │   │   │   └── profile-photo.jpg
-    │   │   │   └── projectImages
-    │   │   │       ├── Personal_Portfolio.png
-    │   │   │       └── School_Website.png
-    │   │   └── videos
-    │   ├── documents
-    │   │   └── Matthew_Tuurozeeng_Resume.pdf
-    │   └── favicon.ico
-    ├── src
-    │   ├── App.tsx
-    │   ├── components
-    │   │   ├── Footer.tsx
-    │   │   ├── ImageGallery.tsx
-    │   │   ├── ImageWithFallback.tsx
-    │   │   ├── Navbar.tsx
-    │   │   ├── ProjectCard.tsx
-    │   │   ├── VideoPlayer.tsx
-    │   │   └── admin
-    │   │       ├── CVForm.tsx
-    │   │       ├── DashboardCard.tsx
-    │   │       ├── FileUpload.tsx
-    │   │       ├── ImpactForm.tsx
-    │   │       ├── ProfileForm.tsx
-    │   │       ├── ProjectForm.tsx
-    │   │       └── Sidebar.tsx
-    │   ├── constants
-    │   │   └── media.ts
-    │   ├── context
-    │   │   └── AuthContext.tsx
-    │   ├── index.css
-    │   ├── main.tsx
-    │   ├── pages
-    │   │   ├── About.tsx
-    │   │   ├── CV.tsx
-    │   │   ├── Contact.tsx
-    │   │   ├── Home.tsx
-    │   │   ├── Impact.tsx
-    │   │   ├── Projects.tsx
-    │   │   └── admin
-    │   │       ├── Dashboard.tsx
-    │   │       ├── Login.tsx
-    │   │       ├── ManageCV.tsx
-    │   │       ├── ManageContacts.tsx
-    │   │       ├── ManageImpact.tsx
-    │   │       ├── ManageProfile.tsx
-    │   │       └── ManageProjects.tsx
-    │   ├── routes
-    │   │   └── AppRoutes.tsx
-    │   ├── services
-    │   │   ├── AdminApi.ts
-    │   │   └── api.ts
-    │   ├── styles
-    │   │   └── cv.css
-    │   ├── utils
-    │   │   └── ProtectedRoutes.tsx
-    │   └── vite-env.d.ts
-    ├── tsconfig.json
-    ├── tsconfig.node.json
-    └── vite.config.js
-```
+The repository is split into two independent applications:
 
----
+- **`frontend/`** — the public website and admin dashboard, built with React, TypeScript, and Vite.
+  - `src/pages/` holds one component per route (Home, About, Projects, Impact, Contact, CV), with the admin screens in `src/pages/admin/`.
+  - `src/components/` contains reusable UI pieces such as the navbar, footer, project cards, timeline, and media viewers, plus admin forms in `src/components/admin/`.
+  - `src/data/` stores the portfolio content (profile, projects, impact initiatives, certificates) as typed data files.
+  - `src/services/` wraps API calls, `src/context/` manages authentication state, and `src/routes/` defines public and protected routes.
+  - `public/` serves static assets: images, the résumé, and certificate PDFs.
 
+- **`backend/`** — the REST API, built with Node.js, Express, and TypeScript.
+  - `src/routes/` maps endpoints to `src/controllers/`, which hold the request logic for auth, projects, impact, profile, CV, contact, and uploads.
+  - `src/models/` defines the MongoDB (Mongoose) models, and `src/config/` sets up the database and Cloudinary connections.
+  - `src/middleware/` handles authentication, file uploads, and error handling.
+  - `src/utils/` and `src/scripts/` contain email helpers and scripts for seeding data and the admin account.
 
 ---
 
