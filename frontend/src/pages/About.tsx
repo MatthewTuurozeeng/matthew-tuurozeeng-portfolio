@@ -50,14 +50,7 @@ const About: React.FC = () => {
   details: [
 
     "Studied core science subjects: Physics, Chemistry, Biology, and Mathematics",
-
-    "Strengthened critical thinking and quantitative analysis through rigorous coursework",
-
     "Awarded West African Senior School Certificate Examination (WASSCE)",
-
-    "Ranked among the top-performing students in the 2022 WASSCE cohort in the School",
-
-    "Actively engaged in academic and school-based activities"
 
   ]
 

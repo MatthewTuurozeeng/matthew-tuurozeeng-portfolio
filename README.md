@@ -1,9 +1,11 @@
-# Personal Professional Portfolio
+# Portfolio website
 
 ## Live Demo
+
 [Matthew Tuurozeeng — Portfolio](https://matthew-tuurozeeng.vercel.app)
 
 ## Overview
+
 My personal portfolio website, built to serve as my long-term digital identity as a Computer Science professional. It showcases my projects, experience, community impact, certifications, and CV.
 
 All content lives in typed data files in the codebase, so the site is fast, has no backend to maintain, and deploys as static files.
@@ -11,6 +13,7 @@ All content lives in typed data files in the codebase, so the site is fast, has 
 ---
 
 ## Features
+
 - Landing page with profile, availability, and highlights
 - About page with skills, principles, certifications, education, and work experience
 - Projects page with category filters, screenshots, and live demo / source links
@@ -21,6 +24,7 @@ All content lives in typed data files in the codebase, so the site is fast, has 
 ---
 
 ## Tech Stack
+
 - **React** with **TypeScript** – component-based, type-safe UI
 - **Vite** – development server and production build
 - **React Router** – client-side routing
@@ -31,6 +35,7 @@ All content lives in typed data files in the codebase, so the site is fast, has 
 ---
 
 ## Project Structure
+
 All of the code lives in **`frontend/`**:
 
 - `src/pages/` holds one component per route: Home, About, Projects, Impact, Contact, and CV.
@@ -42,6 +47,7 @@ All of the code lives in **`frontend/`**:
 ---
 
 ## Running Locally
+
 ```bash
 cd frontend
 npm install

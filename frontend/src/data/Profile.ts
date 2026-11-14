@@ -8,7 +8,7 @@ I enjoy building platforms that empower communities, streamline workflows, and s
   profileImage: '/assets/images/profileImage/profile-photo.jpg',
   skills: {
     frontend: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Bootstrap'],
-    backend: ['Node.js', 'Express', 'PHP'],
+    backend: ['Node.js', 'Express', 'PHP', 'Supabase'],
     databases: ['MongoDB', 'PostgreSQL', 'MySQL'],
     tools: ['PlantUML', 'Trello', 'GitHub Actions', 'Figma'],
   },
