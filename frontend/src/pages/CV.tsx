@@ -129,7 +129,7 @@ const CV: React.FC = () => {
                   </div>
                   <div className="right">
                     Berekuso, Eastern Region <br />
-                    Expected Graduation: Jul 2027
+                    Expected Graduation: May 2027
                   </div>
                 </div>
 

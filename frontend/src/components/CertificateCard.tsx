@@ -26,7 +26,7 @@ const CertificateCard: React.FC<CertificateCardProps> = ({ certificate }) => {
         <span className="certificate-date">{certificate.date}</span>
       </div>
       <p className="certificate-summary">{certificate.summary}</p>
-      <ul className="certificate-list">
+      <ul className="certificate-tags" aria-label="Key learnings">
         {certificate.keyLearnings.map((item) => (
           <li key={item}>{item}</li>
         ))}

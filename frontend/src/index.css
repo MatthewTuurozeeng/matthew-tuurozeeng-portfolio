@@ -134,10 +134,22 @@ body {
   margin-bottom: 0.75rem;
 }
 
-.certificate-list {
-  padding-left: 1.1rem;
-  color: #374151;
-  margin-bottom: 0;
+.certificate-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.certificate-tags li {
+  background: var(--secondary);
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
 }
 
 .certificate-link {

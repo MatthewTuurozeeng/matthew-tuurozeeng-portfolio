@@ -70,6 +70,17 @@ const About: React.FC = () => {
 
   const experienceTimeline: TimelineItem[] = [
     {
+      title: 'Automation & Development Intern',
+      subtitle: 'CalBank PLC, Accra',
+      duration: 'Jun 2026',
+      description: 'Built an AI-powered customer support chatbot prototype on top of the bank’s knowledge base.',
+      achievements: [
+        'Developed the chatbot with React, Node.js/Express, and a RAG pipeline using ChromaDB',
+        'Identified accessibility and customer-experience improvements across CalBank’s digital platforms',
+      ],
+    },
+
+    {
       title: 'Social Media Design Consultant (Volunteer)',
       subtitle: 'Talloires Network of Engaged Universities, Tufts University',
       duration: 'Feb 2026 - Present',
@@ -177,6 +188,16 @@ const About: React.FC = () => {
         </Row>
       </div>
 
+      <div id="education" className="mt-5">
+        <h3 className="text-[#994545] text-2xl font-semibold mb-4">Education</h3>
+        <Timeline items={educationTimeline} variant="education" />
+      </div>
+
+      <div id="experience" className="mt-5">
+        <h3 className="text-[#994545] text-2xl font-semibold mb-4">Work Experience</h3>
+        <Timeline items={experienceTimeline} variant="experience" />
+      </div>
+
       <div className="mt-5">
         <h3 style={{ color: '#994545' }} className="mb-4">
           Certifications & Programs
@@ -188,16 +209,6 @@ const About: React.FC = () => {
             </Col>
           ))}
         </Row>
-      </div>
-
-      <div id="education" className="mt-5">
-        <h3 className="text-[#994545] text-2xl font-semibold mb-4">Education</h3>
-        <Timeline items={educationTimeline} variant="education" />
-      </div>
-
-      <div id="experience" className="mt-5">
-        <h3 className="text-[#994545] text-2xl font-semibold mb-4">Work Experience</h3>
-        <Timeline items={experienceTimeline} variant="experience" />
       </div>
     </Container>
   );
