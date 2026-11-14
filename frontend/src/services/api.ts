@@ -1,6 +1,5 @@
 import projectsData from '../data/Projects';
 import impactData from '../data/Impact';
-import profileData from '../data/Profile';
 
 export interface Project {
   id: string;
@@ -51,11 +50,6 @@ export interface ContactFormData {
   message: string;
 }
 
-export interface ContactResponse {
-  success: boolean;
-  message: string;
-}
-
 export interface Profile {
   name: string;
   title: string;
@@ -75,30 +69,5 @@ const clone = <T>(data: T): T => JSON.parse(JSON.stringify(data));
 const simulateDelay = <T>(data: T, delay = 250) =>
   new Promise<T>((resolve) => setTimeout(() => resolve(clone(data)), delay));
 
-export const api = {
-  getProjects: async (): Promise<Project[]> => simulateDelay(projectsData),
-  getProjectById: async (id: string): Promise<Project> => {
-    const project = projectsData.find((p) => p.id === id);
-    if (!project) {
-      throw new Error('Project not found');
-    }
-    return simulateDelay(project);
-  },
-  submitContact: async (_data: ContactFormData): Promise<ContactResponse> => {
-    console.info('Contact form submission (static mode):', _data);
-    return simulateDelay({
-      success: true,
-      message: 'Message sent successfully (demo mode).',
-    });
-  },
-  getImpactInitiatives: async (): Promise<ImpactInitiative[]> => simulateDelay(impactData),
-  getProfile: async (): Promise<Profile> => simulateDelay(profileData),
-};
-
-export const getProjects = api.getProjects;
-export const getProjectById = api.getProjectById;
-export const submitContact = api.submitContact;
-export const getImpactInitiatives = api.getImpactInitiatives;
-export const getProfile = api.getProfile;
-
-export default api;
+export const getProjects = async (): Promise<Project[]> => simulateDelay(projectsData);
+export const getImpactInitiatives = async (): Promise<ImpactInitiative[]> => simulateDelay(impactData);

@@ -1,5 +1,4 @@
 import type { ImpactInitiative } from '../services/api';
-// import { IMPACT_IMAGES } from '../constants/media';
 
 
 const impactData: ImpactInitiative[] = [

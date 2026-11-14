@@ -1,121 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Card, Alert, Spinner, Badge } from 'react-bootstrap';
+import { Container, Row, Col, Card, Spinner, Badge } from 'react-bootstrap';
 import ImageWithFallback from '../components/ImageWithFallback';
 import ImageGallery from '../components/ImageGallery';
 import { getImpactInitiatives, ImpactInitiative } from '../services/api';
-import { IMPACT_IMAGES } from '../constants/media';
-
-// hardcoded fallback — shown only when API is unreachable
-const FALLBACK_INITIATIVES: ImpactInitiative[] = [
-  {
-    id: 'fallback-1',
-    title: 'Tech Community Leadership',
-    period: '2023 - Present',
-    color: '#994545',
-    description:
-      'Leading a student tech community focused on mentoring aspiring developers and organizing workshops on modern web development, algorithms, and career preparation.',
-    category: 'community',
-    achievements: [
-      'Organized 10+ technical workshops',
-      'Mentored 50+ students',
-      'Built collaborative learning programs',
-    ],
-    image: IMPACT_IMAGES.techCommunity,
-    gallery: [
-      '/images/impact/workshop-1.jpg',
-      '/images/impact/workshop-2.jpg',
-      '/images/impact/workshop-3.jpg',
-      '/images/impact/workshop-4.jpg',
-    ],
-    featured: true,
-    published: true,
-    order: 1,
-  },
-  {
-    id: 'fallback-2',
-    title: 'Open Source Contributions',
-    period: '2022 - Present',
-    color: '#9C484F',
-    description:
-      'Active contributor to open source projects, focusing on improving documentation, fixing bugs, and adding new features to help the developer community.',
-    category: 'tech',
-    achievements: [
-      'Contributed to 15+ repositories',
-      'Improved project documentation',
-      'Collaborated with global developers',
-    ],
-    image: IMPACT_IMAGES.openSource,
-    featured: false,
-    published: true,
-    order: 2,
-  },
-  {
-    id: 'fallback-3',
-    title: 'Educational Fellowship',
-    period: '2023',
-    color: '#997446',
-    description:
-      'Selected for a competitive fellowship program focused on using technology for educational access in underserved communities.',
-    category: 'education',
-    achievements: [
-      'Developed learning platform prototype',
-      'Collaborated with NGOs',
-      'Trained local educators on tech tools',
-    ],
-    image: IMPACT_IMAGES.fellowship,
-    gallery: [
-      '/images/impact/fellowship-1.jpg',
-      '/images/impact/fellowship-2.jpg',
-    ],
-    featured: false,
-    published: true,
-    order: 3,
-  },
-  {
-    id: 'fallback-4',
-    title: 'Hackathon Organizer',
-    period: '2022 - 2023',
-    color: '#994545',
-    description:
-      'Co-organized regional hackathons bringing together students and professionals to solve local challenges through technology.',
-    category: 'community',
-    achievements: [
-      '200+ participants across 3 events',
-      'Secured corporate sponsorships',
-      'Facilitated networking opportunities',
-    ],
-    image: IMPACT_IMAGES.hackathon,
-    gallery: [
-      '/images/impact/hackathon-1.jpg',
-      '/images/impact/hackathon-2.jpg',
-      '/images/impact/hackathon-3.jpg',
-    ],
-    featured: false,
-    published: true,
-    order: 4,
-  },
-];
 
 const Impact: React.FC = () => {
   const [initiatives, setInitiatives] = useState<ImpactInitiative[]>([]);
   const [loading, setLoading] = useState(true);
-  const [usingFallback, setUsingFallback] = useState(false);
 
   useEffect(() => {
     const fetchImpacts = async () => {
       try {
-        const data = await getImpactInitiatives();
-        if (!data || data.length === 0) {
-          setInitiatives(FALLBACK_INITIATIVES);
-          setUsingFallback(true);
-        } else {
-          setInitiatives(data);
-          setUsingFallback(false);
-        }
-      } catch (err) {
-        console.warn('Impact API failed — using fallback data:', err);
-        setInitiatives(FALLBACK_INITIATIVES);
-        setUsingFallback(true);
+        setInitiatives(await getImpactInitiatives());
       } finally {
         setLoading(false);
       }
@@ -139,11 +35,6 @@ const Impact: React.FC = () => {
       <h2 className="section-title">Impact & Leadership</h2>
       <p className="lead mb-4">Community engagement, fellowships, and social initiatives</p>
 
-      {usingFallback && (
-        <Alert variant="info" className="mb-4">
-          Showing offline content — live data currently unavailable.
-        </Alert>
-      )}
 
       <Row>
         {initiatives.map((initiative) => (
