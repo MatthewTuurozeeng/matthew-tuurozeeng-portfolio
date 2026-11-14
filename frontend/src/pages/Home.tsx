@@ -21,9 +21,9 @@ const Home: React.FC = () => {
 
   const availabilityTimeline: TimelineItem[] = [
     {
-      title: 'Open to Internships',
-      subtitle: 'Frontend, Full-Stack, Product Engineering',
-      duration: 'From now onwards',
+      title: 'Internships',
+      subtitle: 'Full-Stack, Product Engineering',
+      duration: 'Immediately available',
       description: 'Actively seeking internships or part-time roles that focus on web products and user experience.',
       details: ['Remote or on-site opportunities', 'Mentorship-focused engineering teams'],
     },
@@ -37,7 +37,7 @@ const Home: React.FC = () => {
     {
       title: 'Full-Time Roles',
       subtitle: 'Software Engineer / Product Builder',
-      duration: 'From now onwards',
+      duration: 'Immediately after graduation in may 2027',
       description: 'Preparing for full-time roles after graduation with a focus on building scalable web systems.',
       details: ['Frontend and backend ownership', 'Cross-functional product teams'],
     },
@@ -107,9 +107,7 @@ const Home: React.FC = () => {
         <div className="availability-section mb-5">
           <div className="availability-header">
             <h3>Open To</h3>
-            <p>
-              Current availability and roles I am actively pursuing. Feel free to reach out if there is a fit.
-            </p>
+      
           </div>
           <Timeline items={availabilityTimeline} variant="education" />
         </div>

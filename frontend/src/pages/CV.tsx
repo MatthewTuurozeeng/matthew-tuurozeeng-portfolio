@@ -40,7 +40,7 @@ const CV: React.FC = () => {
               <h4 style={{ color: '#994545' }}> Master CV</h4>
               <p>
                 Comprehensive document containing all my experiences, projects, skills, 
-                and achievements. Perfect for getting a complete overview of my professional journey.
+                and achievements for getting a complete overview of my professional journey.
               </p>
               <p className="text-muted small">
                 <strong>Note:</strong> Master CV is for viewing only. For downloads, please use the tailored resume.
