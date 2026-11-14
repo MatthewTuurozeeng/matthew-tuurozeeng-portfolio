@@ -46,10 +46,9 @@ const Projects: React.FC = () => {
             key={cat}
             size="sm"
             onClick={() => setFilter(cat)}
-            className={filter === cat ? 'btn-primary-custom' : ''}
-            variant={filter === cat ? undefined : 'outline-secondary'}
+            className={filter === cat ? 'btn-primary-custom' : 'btn-secondary-custom'}
           >
-            {cat}
+            {cat.charAt(0).toUpperCase() + cat.slice(1)}
           </Button>
         ))}
       </div>

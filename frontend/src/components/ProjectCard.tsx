@@ -30,7 +30,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       {/* Featured Badge */}
       {project.featured && (
         <div style={{ position: 'absolute', top: '10px', right: '10px', zIndex: 10 }}>
-          <Badge bg="warning" text="dark">⭐ Featured</Badge>
+          <Badge bg="" className="badge-featured">Featured</Badge>
         </div>
       )}
 
