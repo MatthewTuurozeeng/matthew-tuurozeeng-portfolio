@@ -1,4 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+// Built-in placeholder, so a missing image never depends on an external service
+const DEFAULT_FALLBACK =
+  'data:image/svg+xml;utf8,' +
+  encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250"><rect width="400" height="250" fill="#f7ecea"/><path d="M170 140l25-30 20 22 15-16 30 34H150z" fill="#994545" opacity=".35"/><circle cx="180" cy="100" r="10" fill="#994545" opacity=".35"/></svg>'
+  );
 
 interface ImageWithFallbackProps {
   src: string;
@@ -10,66 +17,32 @@ interface ImageWithFallbackProps {
 
 const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
   src,
-  fallbackSrc = 'https://via.placeholder.com/400x250/994545/FFFFFF?text=Image+Not+Found',
+  fallbackSrc = DEFAULT_FALLBACK,
   alt,
   className = '',
   style = {},
 }) => {
-  const [imgSrc, setImgSrc] = useState<string>(src || fallbackSrc);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [imgSrc, setImgSrc] = useState<string>(src?.trim() ? src : fallbackSrc);
+
+  useEffect(() => {
+    setImgSrc(src?.trim() ? src : fallbackSrc);
+  }, [src, fallbackSrc]);
 
   const handleError = () => {
-    console.log('Image failed to load:', imgSrc);
-    setIsLoading(false);
     if (imgSrc !== fallbackSrc) {
       setImgSrc(fallbackSrc);
     }
   };
 
-  const handleLoad = () => {
-    console.log('Image loaded successfully:', imgSrc);
-    setIsLoading(false);
-  };
-
-  // If src is empty or invalid, use fallback immediately
-  React.useEffect(() => {
-    if (!src || src.trim() === '') {
-      setImgSrc(fallbackSrc);
-      setIsLoading(false);
-    } else {
-      setImgSrc(src);
-      setIsLoading(true);
-    }
-  }, [src, fallbackSrc]);
-
   return (
-    <div style={{ position: 'relative', ...style }}>
-      {isLoading && (
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: '#f0f0f0',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 1,
-          }}
-        >
-          <div className="spinner-border text-primary" role="status" style={{ color: '#994545' }}>
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
-      )}
+    // The tinted background shows while the image loads; the image paints over it
+    <div style={{ position: 'relative', backgroundColor: '#f3eeeb', ...style }}>
       <img
         src={imgSrc}
         alt={alt}
         className={className}
+        loading="lazy"
         onError={handleError}
-        onLoad={handleLoad}
         style={{
           display: 'block',
           width: '100%',
