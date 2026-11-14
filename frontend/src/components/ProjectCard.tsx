@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Button, Badge } from 'react-bootstrap';
 import { Project } from '../services/api';
 import ImageWithFallback from './ImageWithFallback';
@@ -9,11 +9,16 @@ interface ProjectCardProps {
   project: Project;
 }
 
+// Descriptions longer than this are clamped to three lines with a "Read more" toggle
+const DESCRIPTION_CLAMP_LENGTH = 160;
+
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  // Ensure image URL is valid
-  const imageUrl = project.image && project.image.trim() !== '' 
-    ? project.image 
-    : 'https://via.placeholder.com/400x250/994545/FFFFFF?text=No+Image';
+  const [expanded, setExpanded] = useState(false);
+  const description = project.description.trim();
+  const isLong = description.length > DESCRIPTION_CLAMP_LENGTH;
+
+  // ImageWithFallback shows a placeholder when this is empty
+  const imageUrl = project.image;
 
   // Filter out empty screenshots
   const validScreenshots = project.screenshots?.filter(
@@ -46,9 +51,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       <Card.Body className="d-flex flex-column">
         <Card.Title style={{ color: '#994545' }}>{project.title}</Card.Title>
 
-        <Card.Text className="flex-grow-1">
-          {project.description}
-        </Card.Text>
+        <div className="flex-grow-1 mb-3">
+          <Card.Text className={`mb-1 ${isLong && !expanded ? 'description-clamped' : ''}`}>
+            {description}
+          </Card.Text>
+          {isLong && (
+            <button
+              type="button"
+              className="read-more-toggle"
+              onClick={() => setExpanded((value) => !value)}
+              aria-expanded={expanded}
+            >
+              {expanded ? 'Show less' : 'Read more'}
+            </button>
+          )}
+        </div>
 
         {/* Technologies */}
         {project.technologies && project.technologies.length > 0 && (

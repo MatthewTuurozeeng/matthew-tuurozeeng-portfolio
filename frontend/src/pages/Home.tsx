@@ -5,7 +5,7 @@ import { PROFILE_IMAGE, HERO_BACKGROUND } from '../constants/media';
 import profileData from '../data/Profile';
 import projectsData from '../data/Projects';
 import impactData from '../data/Impact';
-import Timeline, { TimelineItem } from '../components/Timeline';
+import ProjectCard from '../components/ProjectCard';
 import fullstackImg from "/assets/images/homeImages/full-stack.jpg";
 import learningImg from "/assets/images/homeImages/learning.jpg";
 import innovationImg from "/assets/images/homeImages/innovate.jpg";
@@ -14,33 +14,20 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
   const { name, title, bio, profileImage } = profileData;
   const stats = [
-    { label: 'Projects Delivered', value: projectsData.length },
+    { label: 'Projects Built', value: projectsData.length },
     { label: 'Impact Initiatives', value: impactData.length },
-    { label: 'Technologies Mastered', value: profileData.skills.frontend.length + profileData.skills.backend.length + profileData.skills.databases.length + profileData.skills.tools.length },
+    { label: 'Technologies Used', value: profileData.skills.frontend.length + profileData.skills.backend.length + profileData.skills.databases.length + profileData.skills.tools.length },
   ];
 
-  const availabilityTimeline: TimelineItem[] = [
-    {
-      title: 'Internships',
-      subtitle: 'Full-Stack, Product Engineering',
-      duration: 'Immediately available',
-      description: 'Actively seeking internships or part-time roles that focus on web products and user experience.',
-      details: ['Remote or on-site opportunities', 'Mentorship-focused engineering teams'],
-    },
-    {
-      title: 'Research & Impact Collaborations',
-      subtitle: 'Civic tech, education, youth leadership',
-      duration: '2024 - Present',
-      description: 'Open to collaborating on projects that use technology for social impact and community development.',
-      details: ['Data storytelling or dashboarding', 'Community programs and digital literacy'],
-    },
-    {
-      title: 'Full-Time Roles',
-      subtitle: 'Software Engineer / Product Builder',
-      duration: 'Immediately after graduation in may 2027',
-      description: 'Preparing for full-time roles after graduation with a focus on building scalable web systems.',
-      details: ['Frontend and backend ownership', 'Cross-functional product teams'],
-    },
+  const featuredProjects = projectsData
+    .filter((project) => project.published && project.featured)
+    .sort((a, b) => a.order - b.order)
+    .slice(0, 3);
+
+  const openTo = [
+    { title: 'Internships', focus: 'Full-Stack, Product Engineering', timing: 'Available now' },
+    { title: 'Research & Impact Collaborations', focus: 'Civic tech, education, youth leadership', timing: 'Ongoing' },
+    { title: 'Full-Time Roles', focus: 'Software Engineer / Product Builder', timing: 'From May 2027' },
   ];
 
   return (
@@ -104,12 +91,37 @@ const Home: React.FC = () => {
       </div>
 
       <Container className="py-5">
+        <div className="d-flex justify-content-between align-items-end flex-wrap gap-2 mb-4">
+          <h2 className="section-title mb-0">Featured Projects</h2>
+          <Button onClick={() => navigate('/projects')} className="btn-secondary-custom">
+            View all projects
+          </Button>
+        </div>
+        <Row className="g-4">
+          {featuredProjects.map((project) => (
+            <Col key={project.id} md={6} lg={4}>
+              <ProjectCard project={project} />
+            </Col>
+          ))}
+        </Row>
+      </Container>
+
+      <Container className="pb-5">
         <div className="availability-section mb-5">
           <div className="availability-header">
             <h3>Open To</h3>
-      
           </div>
-          <Timeline items={availabilityTimeline} variant="education" />
+          <Row className="g-3">
+            {openTo.map((item) => (
+              <Col key={item.title} md={4}>
+                <div className="open-to-card">
+                  <h4>{item.title}</h4>
+                  <p>{item.focus}</p>
+                  <span>{item.timing}</span>
+                </div>
+              </Col>
+            ))}
+          </Row>
         </div>
         <Row className="text-center mb-5">
           {stats.map((stat) => (
