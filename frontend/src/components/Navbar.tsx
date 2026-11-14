@@ -1,25 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Container, Nav, Navbar as BSNavbar, NavDropdown } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
+import { Container, Nav, Navbar as BSNavbar } from 'react-bootstrap';
+
+const links = [
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About' },
+  { to: '/projects', label: 'Projects' },
+  { to: '/impact', label: 'Impact' },
+  { to: '/cv', label: 'CV' },
+  { to: '/contact', label: 'Contact' },
+];
 
 const Navbar: React.FC = () => {
   return (
-    <BSNavbar expand="lg" className="navbar-custom" sticky="top">
+    <BSNavbar expand="lg" className="navbar-custom" sticky="top" collapseOnSelect>
       <Container>
         <BSNavbar.Brand as={Link} to="/">
-          Matthew Tuurozeeng | Software Engineer
+          Matthew Tuurozeeng
         </BSNavbar.Brand>
         <BSNavbar.Toggle aria-controls="navbar-nav" />
         <BSNavbar.Collapse id="navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/about">About</Nav.Link>
-            <NavDropdown title="Work" id="work-dropdown">
-              <NavDropdown.Item as={Link} to="/projects">Projects</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/impact">Impact</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
-            <Nav.Link as={Link} to="/cv">Curriculum Vitae (CV)</Nav.Link>
+            {links.map(({ to, label }) => (
+              <Nav.Link key={to} as={NavLink} to={to} eventKey={to} end={to === '/'}>
+                {label}
+              </Nav.Link>
+            ))}
           </Nav>
         </BSNavbar.Collapse>
       </Container>

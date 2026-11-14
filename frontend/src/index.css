@@ -24,6 +24,13 @@ body {
   font-weight: 700;
   font-size: 1.35rem;
   letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+@media (max-width: 400px) {
+  .navbar-custom .navbar-brand {
+    font-size: 1.15rem;
+  }
 }
 
 .navbar-brand-custom {
@@ -208,16 +215,24 @@ body {
 }
 
 .btn-secondary-custom {
-  background-color: var(--tertiary);
-  border-color: var(--tertiary);
-  color: white;
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
   transition: all 0.3s;
 }
 
-.btn-secondary-custom:hover {
-  background-color: #7a5d38;
-  border-color: #7a5d38;
+.btn-secondary-custom:hover,
+.btn-secondary-custom:focus {
+  background-color: var(--primary);
+  border-color: var(--primary);
   color: white;
+}
+
+/* Featured project badge */
+.badge-featured {
+  background-color: var(--primary);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Footer Styles */

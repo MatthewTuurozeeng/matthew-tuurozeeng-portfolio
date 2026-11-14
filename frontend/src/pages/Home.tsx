@@ -91,7 +91,7 @@ const Home: React.FC = () => {
               as="a"
               href="/documents/Matthew_Tuurozeeng_Resume.pdf"
               download
-              className="btn-secondary-custom"
+              variant="outline-light"
               size="lg"
             >
               Download Resume
