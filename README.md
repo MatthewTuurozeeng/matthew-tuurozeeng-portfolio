@@ -1,131 +1,51 @@
-# Personal Professional Porfolio  
-*A Scalable Portfolio with Custom Content Management Dashboard*
-
----
+# Personal Professional Portfolio
 
 ## Live Demo
 [Matthew Tuurozeeng — Portfolio](https://matthew-tuurozeeng.vercel.app)
 
 ## Overview
-This project is a **full-stack personal professional platform** designed to serve as my long-term digital identity as a Computer Science professional.
+My personal portfolio website, built to serve as my long-term digital identity as a Computer Science professional. It showcases my projects, experience, community impact, certifications, and CV.
 
-Unlike a static portfolio website, this platform includes:
-- A **public-facing professional website**
-- A **secure custom-built admin dashboard**
-- A **backend REST API**
-- A **media management system** for images, videos, and documents
-
-The platform allows dynamic content management (projects, fellowships, CVs, principles, media) without modifying frontend code, making it scalable as my career progresses.
+All content lives in typed data files in the codebase, so the site is fast, has no backend to maintain, and deploys as static files.
 
 ---
 
-## Project Goals
-- Build a **professional-grade portfolio platform**
-- Allow content management through a **private admin dashboard**
-- Support **media uploads** (images, videos, PDFs, documents)
-- Ensure **scalability, security, and maintainability**
-- Demonstrate **full-stack software engineering skills**
-
----
-
-## System Architecture
-- Admin Dashboard (React)
-- Backend API (Node.js + Express)
-- PostgreSQL Database (Prisma ORM)
-- Media Storage (Cloudinary)
-- Public Frontend (Next.js)
-
-
----
-
-## Core Features
-
-### Public Website
-- Professional landing page
-- About ,  principles and LinkedIn profile link
-- Projects with rich media
-- Fellowships & social impact
-- Downloadable CV
-- Contact form
-
-### Admin Dashboard
-- Secure admin login (JWT authentication)
-- Create, update, delete content (CRUD)
-- Upload and manage media files
-- Publish / unpublish content
-- Manage CV versions
-
-### Backend API
-- Authentication & authorization
-- RESTful content APIs
-- Media upload handling
-- Secure environment configuration
+## Features
+- Landing page with profile, availability, and highlights
+- About page with skills, principles, certifications, education, and work experience
+- Projects page with category filters, screenshots, and live demo / source links
+- Impact & leadership page with photo galleries
+- Full CV view and downloadable résumé
+- Contact form that opens WhatsApp with the message pre-filled
 
 ---
 
 ## Tech Stack
-
-### Frontend (Public Website)
-- **Next.js (React)** – SEO-friendly, fast, scalable frontend
-- **TypeScript** – Type safety and maintainability
-- **Tailwind CSS** – Clean and consistent UI styling
-
-### Admin Dashboard
-- **React (TypeScript)** – Component-based UI
-- **JWT Authentication** – Secure access control
-- **Fetch API** – Backend communication
-
-### Backend
-- **Node.js** – Non-blocking runtime environment
-- **Express.js** – REST API framework
-- **TypeScript** – Safer backend development
-- **JWT** – Authentication & authorization
-- **bcrypt** – Password hashing
-
-### Database
-- **PostgreSQL** – Relational database
-- **Prisma ORM** – Type-safe database access and migrations
-
-### Media & File Storage
-- **Cloudinary** – Image and video hosting
-- **AWS S3** – Document and file storage
-
-### Deployment
-- **Vercel** – Frontend hosting
-- **Railway / Render** – Backend & database hosting
-- **GitHub** – Version control
+- **React** with **TypeScript** – component-based, type-safe UI
+- **Vite** – development server and production build
+- **React Router** – client-side routing
+- **React Bootstrap** – layout and UI components
+- **React Hook Form** – contact form validation
+- **Vercel** – hosting and deployment
 
 ---
 
 ## Project Structure
-The repository is split into two independent applications:
+All of the code lives in **`frontend/`**:
 
-- **`frontend/`** — the public website and admin dashboard, built with React, TypeScript, and Vite.
-  - `src/pages/` holds one component per route (Home, About, Projects, Impact, Contact, CV), with the admin screens in `src/pages/admin/`.
-  - `src/components/` contains reusable UI pieces such as the navbar, footer, project cards, timeline, and media viewers, plus admin forms in `src/components/admin/`.
-  - `src/data/` stores the portfolio content (profile, projects, impact initiatives, certificates) as typed data files.
-  - `src/services/` wraps API calls, `src/context/` manages authentication state, and `src/routes/` defines public and protected routes.
-  - `public/` serves static assets: images, the résumé, and certificate PDFs.
-
-- **`backend/`** — the REST API, built with Node.js, Express, and TypeScript.
-  - `src/routes/` maps endpoints to `src/controllers/`, which hold the request logic for auth, projects, impact, profile, CV, contact, and uploads.
-  - `src/models/` defines the MongoDB (Mongoose) models, and `src/config/` sets up the database and Cloudinary connections.
-  - `src/middleware/` handles authentication, file uploads, and error handling.
-  - `src/utils/` and `src/scripts/` contain email helpers and scripts for seeding data and the admin account.
+- `src/pages/` holds one component per route: Home, About, Projects, Impact, Contact, and CV.
+- `src/components/` contains reusable UI pieces such as the navbar, footer, project cards, timeline, and media viewers.
+- `src/data/` stores the portfolio content (profile, projects, impact initiatives, certificates). Updating the site's content means editing these files.
+- `src/services/` exposes the content to the pages, and `src/routes/` defines the routes.
+- `public/` serves static assets: images, the résumé, and certificate PDFs.
 
 ---
 
-## Security Considerations
-- Password hashing using bcrypt
-- JWT-based authentication
-- Protected admin routes
-- Environment variable protection
-- File upload validation
+## Running Locally
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
----
-
-
-
-
-
-
+To create a production build, run `npm run build`; the output goes to `frontend/dist/`.

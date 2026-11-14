@@ -1,50 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Spinner, Alert, Badge, Button } from 'react-bootstrap';
+import { Container, Row, Col, Spinner, Alert, Button } from 'react-bootstrap';
 import ProjectCard from '../components/ProjectCard';
 import { getProjects, Project } from '../services/api';
-
-// hardcoded fallback — shown only when API is unreachable
-const FALLBACK_PROJECTS: Project[] = [
-  {
-    id: 'fallback-1',
-    title: 'Linear Algebra Learning Platform',
-    description: 'A teaching tool for CS students taking Linear Algebra at Ashesi University.',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'Firebase'],
-    category: 'Web',
-    image: '/images/fallback-project.png',
-    images: [],
-    githubUrl: 'https://github.com/MatthewTuurozeeng/for-youth-by-youth-platform',
-    liveUrl: '',
-    featured: true,
-    published: true,
-    order: 1,
-  },
-];
 
 const Projects: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-  const [usingFallback, setUsingFallback] = useState(false);
   const [filter, setFilter] = useState('All');
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const data = await getProjects();
-        if (!data || data.length === 0) {
-          setProjects(FALLBACK_PROJECTS);
-          setUsingFallback(true);
-        } else {
-          setProjects(data);
-          setUsingFallback(false);
-        }
-        setError(null);
-      } catch (err) {
-        console.warn('Projects API failed — using fallback data:', err);
-        setProjects(FALLBACK_PROJECTS);
-        setUsingFallback(true);
-        setError(null); // don't show error — fallback handles it silently
+        setProjects(await getProjects());
       } finally {
         setLoading(false);
       }
@@ -71,11 +38,6 @@ const Projects: React.FC = () => {
       <h2 className="section-title">Projects</h2>
       <p className="lead mb-4">A showcase of my technical work and creative solutions</p>
 
-      {usingFallback && (
-        <Alert variant="info" className="mb-4">
-          Showing offline content — live data currently unavailable.
-        </Alert>
-      )}
 
       {/* Category filter */}
       <div className="d-flex gap-2 flex-wrap mb-4">

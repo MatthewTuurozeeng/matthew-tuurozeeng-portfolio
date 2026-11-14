@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
-// import { submitContact, ContactFormData } from '../services/api';
 import { ContactFormData } from '../services/api';
 import { BsLinkedin, BsInstagram, BsFacebook } from 'react-icons/bs';
 
