@@ -70,6 +70,17 @@ const About: React.FC = () => {
 
   const experienceTimeline: TimelineItem[] = [
     {
+      title: 'CCAPS Peer Coach (Volunteer)',
+      subtitle: 'Counselling, Coaching & Academic Advising Unit, Ashesi University',
+      duration: 'Sep 2026 - Present',
+      description: 'Provide peer-level support to fellow students through listening, coaching, academic support, and referrals.',
+      achievements: [
+        'Guiding students to plan their academic goals and personal welfare',
+        'Connecting students to counselling and advising services when they need more support',
+      ],
+    },
+
+    {
       title: 'Automation & Development Intern',
       subtitle: 'CalBank PLC, Accra',
       duration: 'Jun 2026',

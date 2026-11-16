@@ -552,6 +552,24 @@ const CV: React.FC = () => {
                 <h2>COMMUNITY ENGAGEMENT & SERVICE</h2>
                 <div className="entry">
                   <div className="left">
+                    <strong>Counselling, Coaching & Academic Advising (CCA) Unit</strong> - Ashesi University <br />
+                    <b>CCAPS Peer Coach (Volunteer)</b>
+                    <ul>
+                      <li>
+                        Provide peer-level support to fellow students through active listening, coaching, and academic
+                        support, helping them plan their academic goals and personal welfare
+                      </li>
+                      <li>
+                        Refer students to professional counselling and advising services when needed, working within
+                        the boundaries of the peer coach role
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="right">Sep 2026 - Present</div>
+                </div>
+
+                <div className="entry">
+                  <div className="left">
                     <strong>Computing4All Initiative</strong> <br />
                     <b>Founder & Project Lead</b>
                     <ul>
