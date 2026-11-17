@@ -30,11 +30,22 @@ const About: React.FC = () => {
     {
       title: 'Ashesi University',
       subtitle: 'BSc. Computer Science',
-      duration: '2023 - Present',
+      duration: '2023 - May 2027 (Expected)',
       description: 'Focused on full-stack development, data analysis, and building scalable software systems.',
       details: [
-        'Relevant coursework: Data Structures, Algorithm Design and Analyis, Computer Organization and Architceture, Web Development, Databases, Software Engineering',
-        'Leadership & service: community-driven tech initiatives and mentoring',
+        "Dean's List, Spring Semester (2025/2026)",
+        'Mastercard Foundation Scholar',
+      ],
+      coursework: [
+        'Data Structures',
+        'Algorithm Design & Analysis',
+        'Artificial Intelligence',
+        'Machine Learning',
+        'Software Engineering',
+        'Web Development',
+        'Databases',
+        'Operating Systems',
+        'Information & Systems Security (In Progress)',
       ],
     },
     {
@@ -43,7 +54,7 @@ const About: React.FC = () => {
 
   subtitle: "General Science",
 
-  duration: "Aug 2019  - Jun 2022",
+  duration: "Aug 2019  - Sep 2022",
 
   description: "Completed secondary education in General Science, developing a strong foundation in analytical reasoning and problem-solving.",
 
@@ -54,17 +65,6 @@ const About: React.FC = () => {
 
   ]
 
-}, 
-{
-  title: "Machris Christian Academy",
-  subtitle: "Basic Education",
-  duration: "2017  -  2019",
-  description: "Completed basic education with strong academic performance, building foundational skills in Literacy, Numeracy, and general Academics.",
-  details: [
-    "Sat for and completed the Basic Education Certificate Examination (BECE)",
-    "Ranked as the best-performing student in the school for BECE",
-    "Placed among the top 3 BECE candidates in the district",
-  ]
 }
   ];
 
