@@ -44,7 +44,7 @@ const About: React.FC = () => {
         'Software Engineering',
         'Web Development',
         'Databases',
-        'Operating Systems',
+        'Operating Systems (In Progress)',
         'Information & Systems Security (In Progress)',
       ],
     },
