@@ -6,6 +6,7 @@ export interface TimelineItem {
   duration: string;
   description: string;
   details?: string[];
+  coursework?: string[];
   challenges?: string[];
   achievements?: string[];
 }
@@ -37,6 +38,19 @@ const Timeline: React.FC<TimelineProps> = ({ items, variant = 'education' }) => 
                 <li key={i}>{d}</li>
               ))}
             </ul>
+          ) : null}
+
+          {item.coursework?.length ? (
+            <div className="timeline-coursework">
+              <h5>Relevant Coursework</h5>
+              <div>
+                {item.coursework.map((course) => (
+                  <span key={course} className="skill-badge">
+                    {course}
+                  </span>
+                ))}
+              </div>
+            </div>
           ) : null}
 
           {variant === 'experience' && (item.challenges?.length || item.achievements?.length) ? (

@@ -541,10 +541,21 @@ body {
   gap: 0.75rem;
 }
 
-.timeline-grid h5 {
+.timeline-grid h5,
+.timeline-coursework h5 {
   font-size: 0.9rem;
   font-weight: 700;
   color: #111827;
+}
+
+.timeline-coursework {
+  margin-top: 0.8rem;
+}
+
+.timeline-coursework .skill-badge {
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+  margin: 0.2rem 0.4rem 0.2rem 0;
 }
 
 @media (min-width: 768px) {
