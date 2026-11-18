@@ -2,6 +2,42 @@ import type { Project } from '../services/api';
 
 const projectsData: Project[] = [
   {
+    id: 'proj-calendar',
+    title: 'Personal Calendar & Planner',
+    description:
+      'A calendar and task planner I built for my own workflow and use every day. Combines Day, Week, Month and Agenda views with drag-to-schedule events, recurring schedules (including edits to this, following or all occurrences), task time-blocking, an academic timetable planner, and push reminders that reach my phone and laptop even when the app is closed. Installable as a PWA, with row-level security on every table.',
+    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'FullCalendar', 'Supabase', 'PostgreSQL', 'Edge Functions', 'Web Push', 'PWA', 'Vercel'],
+    category: 'web',
+    status: 'completed',
+    image: '/assets/images/projectImages/Calendar.png',
+    images: ['/assets/images/projectImages/Calendar.png'],
+    screenshots: [],
+    githubUrl: 'https://github.com/MatthewTuurozeeng/calendar',
+    liveUrl: 'https://calendar-two-gold.vercel.app',
+    featured: true,
+    published: true,
+    order: 1,
+  },
+
+  {
+    id: 'proj-opportunity-hub',
+    title: 'OpportunityHub',
+    description:
+      'A private, invite-only workspace I use to track scholarship, internship, job, fellowship and grant applications from first find to final outcome. Brings deadlines, interviews, reusable documents, communications, notes and success-rate analytics into one place, replacing scattered spreadsheets and inboxes. Secured with Supabase Row Level Security and private storage, tested with Vitest, Playwright and pgTAP, and installable as a PWA.',
+    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'shadcn/ui', 'TanStack Query', 'Zod', 'Supabase', 'PostgreSQL', 'Playwright', 'PWA', 'Vercel'],
+    category: 'web',
+    status: 'completed',
+    image: '/assets/images/projectImages/Opportunity_Hub.png',
+    images: ['/assets/images/projectImages/Opportunity_Hub.png'],
+    screenshots: [],
+    githubUrl: 'https://github.com/MatthewTuurozeeng/Opportunity-hub',
+    liveUrl: 'https://opportunity-hub-puce.vercel.app',
+    featured: true,
+    published: true,
+    order: 2,
+  },
+
+  {
     id: 'proj-daakye',
     title: 'Daakye Vendor Space',
     description:
@@ -16,7 +52,7 @@ const projectsData: Project[] = [
     liveUrl: 'https://local-market-inventory-and-sales-mg.vercel.app/',
     featured: true,
     published: true,
-    order: 1,
+    order: 3,
   },
 
   {
@@ -32,9 +68,9 @@ const projectsData: Project[] = [
     screenshots: [],
     githubUrl: 'https://github.com/MatthewTuurozeeng/matthew-tuurozeeng-portfolio',
     liveUrl: '', // https://matthew-portfolio.dev
-    featured: true,
+    featured: false,
     published: true,
-    order: 2,
+    order: 4,
   },
   {
     id: 'proj-school',
@@ -49,9 +85,9 @@ const projectsData: Project[] = [
     screenshots: [],
     githubUrl: 'https://github.com/MatthewTuurozeeng/Machris-website',
     liveUrl: 'https://machris-website.vercel.app',
-    featured: true,
+    featured: false,
     published: true,
-    order: 3,
+    order: 5,
   },
   {
     id: 'proj-fyby',
@@ -68,7 +104,7 @@ const projectsData: Project[] = [
     liveUrl: '',
     featured: false,
     published: true,
-    order: 4,
+    order: 6,
   },
 
   {
@@ -84,9 +120,9 @@ const projectsData: Project[] = [
     screenshots: [],
     githubUrl: 'https://github.com/MatthewTuurozeeng/ashesi-webtech-2025-peercoding-Matthew-Tuurozeeng/tree/main/Activity_04/Individual/course_management',
     liveUrl: '',
-    featured: true,
+    featured: false,
     published: true,
-    order: 5,
+    order: 7,
   },
 
   {
@@ -104,7 +140,7 @@ const projectsData: Project[] = [
     liveUrl: 'https://tuurozeengmatthew.wixsite.com/agape-site',
     featured: false,
     published: true,
-    order: 6,
+    order: 8,
   },
 ];
 
