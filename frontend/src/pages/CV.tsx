@@ -327,11 +327,11 @@ const CV: React.FC = () => {
                 <b>Tutor & Student Mentor</b>
                 <ul>
                   <li>
-                    Tutored Mathematics and Integrated Science, contributing to a 20% improvement in examination
+                    Tutored Mathematics, Science, and ICT, contributing to a 20% improvement in examination
                     performance for approximately 60% of students
                   </li>
                   <li>
-                    Mentored and coached over 50 students, improving academic discipline and learning habits
+                    Mentored and coached 60+ students, improving academic discipline and learning habits
                   </li>
                   <li>
                     Organised remedial classes to prepare students for the BECE, improving performance for over
@@ -537,6 +537,10 @@ const CV: React.FC = () => {
                     projects advancing the UN Sustainable Development Goals (SDGs)
                   </li>
                   <li>
+                    Co-implemented EduGo, our fellowship project, as program planner: ran hygiene, welfare, and
+                    tree-planting sessions for 30+ junior high students and donated sanitary pads to young girls
+                  </li>
+                  <li>
                     Collaborated with peers across 290+ campuses in 20+ countries to design and implement
                     initiatives that drive measurable community impact
                   </li>
@@ -578,7 +582,7 @@ const CV: React.FC = () => {
                         with foundational computer skills and confidence in technology
                       </li>
                       <li>
-                        Engaged and mentored 25+ students through hands-on learning sessions, dedicating two-hour
+                        Engaged and mentored 50+ students through hands-on learning sessions, dedicating two-hour
                         classes three times a week using personal resources
                       </li>
                       <li>

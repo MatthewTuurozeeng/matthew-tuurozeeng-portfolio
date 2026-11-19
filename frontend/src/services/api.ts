@@ -36,6 +36,7 @@ export interface ImpactInitiative {
   stats?: { label: string; value: string }[];
   tags?: string[];
   image?: string;
+  imagePosition?: string;
   gallery?: string[];
   link?: string;
   featured: boolean;

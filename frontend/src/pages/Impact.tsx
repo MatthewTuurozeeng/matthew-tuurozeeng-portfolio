@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Card, Spinner, Badge } from 'react-bootstrap';
+import { Container, Row, Col, Card, Spinner } from 'react-bootstrap';
 import ImageWithFallback from '../components/ImageWithFallback';
 import ImageGallery from '../components/ImageGallery';
 import { getImpactInitiatives, ImpactInitiative } from '../services/api';
@@ -11,7 +11,8 @@ const Impact: React.FC = () => {
   useEffect(() => {
     const fetchImpacts = async () => {
       try {
-        setInitiatives(await getImpactInitiatives());
+        const data = await getImpactInitiatives();
+        setInitiatives(data.filter((i) => i.published).sort((a, b) => a.order - b.order));
       } finally {
         setLoading(false);
       }
@@ -30,68 +31,85 @@ const Impact: React.FC = () => {
     );
   }
 
+  const summary = [
+    { value: '140+', label: 'Young people reached' },
+    { value: String(initiatives.length), label: 'Initiatives & programs' },
+    { value: '2', label: 'Global fellowships' },
+    { value: '20+', label: 'Countries in my networks' },
+  ];
+
   return (
     <Container className="py-5">
       <h2 className="section-title">Impact & Leadership</h2>
       <p className="lead mb-4">Community engagement, fellowships, and social initiatives</p>
 
+      <div className="impact-summary mb-5">
+        {summary.map((s) => (
+          <div key={s.label} className="impact-summary-item">
+            <div className="impact-summary-value">{s.value}</div>
+            <div className="impact-summary-label">{s.label}</div>
+          </div>
+        ))}
+      </div>
 
       <Row>
         {initiatives.map((initiative) => (
           <Col key={initiative.id} lg={6} className="mb-4">
-            <Card className="card-custom h-100">
-              {initiative.image && (
+            <Card className="card-custom impact-card h-100">
+              {initiative.image ? (
                 <ImageWithFallback
                   src={initiative.image}
                   alt={initiative.title}
-                  style={{ height: '200px', objectFit: 'cover', width: '100%' }}
+                  style={{ height: '200px', objectFit: 'cover', width: '100%', objectPosition: initiative.imagePosition || 'center' }}
                 />
+              ) : (
+                <div className="impact-cover impact-cover-placeholder">
+                  <span>{initiative.title}</span>
+                </div>
               )}
+
               <Card.Body>
-                {initiative.category && (
-                  <Badge bg="secondary" className="mb-2">{initiative.category}</Badge>
-                )}
-                <h4 style={{ color: initiative.color || '#994545' }}>{initiative.title}</h4>
-                {initiative.period && (
-                  <p className="text-muted mb-3">{initiative.period}</p>
-                )}
-                <p>{initiative.description}</p>
+                <div className="impact-header">
+                  <h4 className="impact-title">{initiative.title}</h4>
+                  {initiative.period && <span className="impact-period">{initiative.period}</span>}
+                </div>
 
-                {/* achievements from DB or fallback */}
-                {initiative.achievements && initiative.achievements.length > 0 && (
-                  <ul>
-                    {initiative.achievements.map((achievement, idx) => (
-                      <li key={idx}>{achievement}</li>
-                    ))}
-                  </ul>
-                )}
-
-                {/* stats from DB */}
                 {initiative.stats && initiative.stats.length > 0 && (
-                  <div className="d-flex flex-wrap gap-2 mt-2">
-                    {initiative.stats.map((s, i) => (
-                      <div key={i} className="text-center p-2 bg-light rounded">
-                        <div style={{ color: '#994545', fontWeight: 'bold' }}>{s.value}</div>
-                        <small className="text-muted">{s.label}</small>
+                  <div className="impact-stats">
+                    {initiative.stats.map((s) => (
+                      <div key={s.label} className="impact-stat">
+                        <div className="impact-stat-value">{s.value}</div>
+                        <div className="impact-stat-label">{s.label}</div>
                       </div>
                     ))}
                   </div>
                 )}
 
-                {/* tags from DB */}
-                {initiative.tags && initiative.tags.length > 0 && (
-                  <div className="d-flex flex-wrap gap-1 mt-2">
-                    {initiative.tags.map(tag => (
-                      <Badge key={tag} bg="light" text="dark" className="border">{tag}</Badge>
-                    ))}
+                <p className="impact-description">{initiative.description}</p>
+
+                {initiative.achievements && initiative.achievements.length > 0 && (
+                  <>
+                    <h6 className="impact-subheading">What I did</h6>
+                    <ul className="impact-list">
+                      {initiative.achievements.map((achievement) => (
+                        <li key={achievement}>{achievement}</li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+
+                {initiative.gallery && initiative.gallery.length > 0 && (
+                  <div className="mt-3">
+                    <h6 className="impact-subheading">Gallery</h6>
+                    <ImageGallery images={initiative.gallery} title={initiative.title} />
                   </div>
                 )}
 
-                {/* gallery from fallback or DB */}
-                {initiative.gallery && initiative.gallery.length > 0 && (
-                  <div className="mt-3">
-                    <h6 style={{ color: initiative.color || '#994545', fontSize: '0.9rem' }}>Gallery:</h6>
-                    <ImageGallery images={initiative.gallery} title={initiative.title} />
+                {initiative.tags && initiative.tags.length > 0 && (
+                  <div className="impact-tags">
+                    {initiative.tags.map((tag) => (
+                      <span key={tag} className="impact-tag">{tag}</span>
+                    ))}
                   </div>
                 )}
 

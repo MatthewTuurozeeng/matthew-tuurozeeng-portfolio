@@ -663,3 +663,142 @@ body {
 .read-more-toggle:hover {
   text-decoration: underline;
 }
+
+/* Impact page */
+.impact-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .impact-summary {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.impact-summary-item {
+  background: #fff;
+  border: 1px solid #f0e2da;
+  border-top: 4px solid var(--primary);
+  border-radius: 10px;
+  padding: 1.1rem 1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.impact-summary-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.1;
+}
+
+.impact-summary-label {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.impact-cover-placeholder {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--primary) 0%, #b86a5f 55%, var(--secondary) 100%);
+}
+
+.impact-cover-placeholder span {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.impact-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.impact-title {
+  color: var(--primary);
+  font-weight: 700;
+  margin: 0;
+}
+
+.impact-period {
+  font-size: 0.85rem;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.impact-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.impact-stat {
+  flex: 1 1 0;
+  min-width: 90px;
+  background: #fbf3ee;
+  border-radius: 8px;
+  padding: 0.6rem 0.5rem;
+  text-align: center;
+}
+
+.impact-stat-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.1;
+}
+
+.impact-stat-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.impact-description {
+  color: #374151;
+}
+
+.impact-subheading {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #111827;
+  margin-bottom: 0.4rem;
+}
+
+.impact-list {
+  padding-left: 1.1rem;
+  margin-bottom: 0;
+}
+
+.impact-list li {
+  margin-bottom: 0.25rem;
+}
+
+.impact-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.impact-tag {
+  background-color: var(--secondary);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+}

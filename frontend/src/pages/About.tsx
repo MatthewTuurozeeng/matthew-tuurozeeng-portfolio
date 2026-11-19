@@ -103,10 +103,10 @@ const About: React.FC = () => {
     {
       title: 'Founder & Program Lead',
       subtitle: 'Computing4All Initiative',
-      duration: '2025 - Present',
+      duration: 'Dec 2025 - Present',
       description: 'Community digital literacy program teaching schoolchildren foundational computing skills.',
       challenges: ['Limited access to devices and stable internet', 'Designing lessons suitable for mixed learning levels'],
-      achievements: ['Delivering hands-on sessions to 25+ learners', 'Building a repeatable curriculum for future cohorts'],
+      achievements: ['Delivering hands-on sessions to 50+ learners', 'Building a repeatable curriculum for future cohorts'],
     },
     {
       title: 'Founder & CEO',
