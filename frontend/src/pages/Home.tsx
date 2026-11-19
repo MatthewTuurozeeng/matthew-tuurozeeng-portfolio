@@ -1,5 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { BsArrowRight } from 'react-icons/bs';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { PROFILE_IMAGE, HERO_BACKGROUND } from '../constants/media';
 import profileData from '../data/Profile';
@@ -26,6 +27,30 @@ const Home: React.FC = () => {
     .filter((project) => project.published && project.featured)
     .sort((a, b) => a.order - b.order)
     .slice(0, 3);
+
+  const strengths = [
+    {
+      title: 'Full-Stack Development',
+      text: 'React, TypeScript and Supabase apps I use every day, from a personal calendar to an application tracker.',
+      image: fullstackImg,
+      to: '/projects',
+      linkLabel: 'See my projects',
+    },
+    {
+      title: 'Continuous Learning',
+      text: "Dean's List Computer Science student with certifications in React, databases, and machine learning.",
+      image: learningImg,
+      to: '/about#certifications',
+      linkLabel: 'View certifications',
+    },
+    {
+      title: 'Innovation for Impact',
+      text: 'From a RAG chatbot at CalBank to teaching 50+ children digital skills through Computing4All.',
+      image: innovationImg,
+      to: '/impact',
+      linkLabel: 'Explore my impact',
+    },
+  ];
 
   const openTo = [
     { title: 'Internships', focus: 'Full-Stack, Product Engineering', timing: 'Available now' },
@@ -122,6 +147,24 @@ const Home: React.FC = () => {
       </Container>
 
       <Container className="pb-5">
+        <h2 className="section-title">What I Bring</h2>
+        <Row className="g-4">
+          {strengths.map((item) => (
+            <Col key={item.title} md={4} className="reveal">
+              <Link to={item.to} className="feature-card">
+                <img src={item.image} alt="" className="feature-image" />
+                <h4 className="feature-title">{item.title}</h4>
+                <p className="feature-text">{item.text}</p>
+                <span className="feature-link">
+                  {item.linkLabel} <BsArrowRight aria-hidden="true" />
+                </span>
+              </Link>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+
+      <Container className="pb-5">
         <div className="availability-section">
           <div className="availability-header">
             <h3>Open To</h3>
@@ -160,7 +203,7 @@ const Home: React.FC = () => {
       </section>
 
       <Container className="py-5">
-        <Row className="text-center mb-5">
+        <Row className="text-center">
           {stats.map((stat) => (
             <Col key={stat.label} md={4} className="mb-4 reveal">
               <div className="p-4 shadow-sm rounded" style={{ background: '#fff5f5' }}>
@@ -174,66 +217,29 @@ const Home: React.FC = () => {
         </Row>
       </Container>
 
-      <Container className="py-5">
-  <Row className="text-center">
-
-    <Col md={4} className="mb-4 reveal">
-      <div className="feature-card">
-        <img
-          src={fullstackImg}
-          alt="Full-Stack Development"
-          className="feature-image"
-        />
-
-        <h4 className="feature-title">
-          Full-Stack Development
-        </h4>
-
-        <p className="feature-text">
-          Building scalable web applications with modern technologies
-        </p>
-      </div>
-    </Col>
-
-    <Col md={4} className="mb-4 reveal">
-      <div className="feature-card">
-        <img
-          src={learningImg}
-          alt="Continuous Learning"
-          className="feature-image"
-          
-        />
-
-        <h4 className="feature-title">
-          Continuous Learning
-        </h4>
-
-        <p className="feature-text">
-          Passionate about staying current with industry trends
-        </p>
-      </div>
-    </Col>
-
-    <Col md={4} className="mb-4 reveal">
-      <div className="feature-card">
-        <img
-          src={innovationImg}
-          alt="Innovation"
-          className="feature-image"
-        />
-
-        <h4 className="feature-title">
-          Innovation
-        </h4>
-
-        <p className="feature-text">
-          Creating solutions that make a real-world impact
-        </p>
-      </div>
-    </Col>
-
-  </Row>
-</Container>
+      <section className="home-cta">
+        <Container className="text-center">
+          <h2>Let's build something together</h2>
+          <p>
+            I'm open to software engineering internships now, and full-time roles from May 2027.
+            If you're working on something meaningful, I'd love to hear about it.
+          </p>
+          <div className="d-flex gap-3 justify-content-center flex-wrap">
+            <Button onClick={() => navigate('/contact')} className="btn-cta-light" size="lg">
+              Contact Me
+            </Button>
+            <Button
+              as="a"
+              href="/documents/Matthew_Tuurozeeng_Resume.pdf"
+              download
+              variant="outline-light"
+              size="lg"
+            >
+              Download Resume
+            </Button>
+          </div>
+        </Container>
+      </section>
     </>
   );
 };
