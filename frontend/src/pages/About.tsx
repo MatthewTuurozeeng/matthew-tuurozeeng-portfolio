@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { BsGeoAlt, BsMortarboard, BsAward, BsBriefcase } from 'react-icons/bs';
 import profileData from '../data/Profile';
 import Timeline, { TimelineItem } from '../components/Timeline';
@@ -144,6 +144,17 @@ const About: React.FC = () => {
     },
   
   ];
+
+  const { hash } = useLocation();
+
+  // Support links like /about#certifications from other pages
+  useEffect(() => {
+    if (!hash) return;
+    const timer = window.setTimeout(() => {
+      document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+    return () => window.clearTimeout(timer);
+  }, [hash]);
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
