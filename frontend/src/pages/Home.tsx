@@ -7,6 +7,8 @@ import projectsData from '../data/Projects';
 import impactData from '../data/Impact';
 import ProjectCard from '../components/ProjectCard';
 import CountUp from '../components/CountUp';
+import Marquee from '../components/Marquee';
+import { techStack, organizations } from '../data/Highlights';
 import fullstackImg from "/assets/images/homeImages/full-stack.jpg";
 import learningImg from "/assets/images/homeImages/learning.jpg";
 import innovationImg from "/assets/images/homeImages/innovate.jpg";
@@ -91,6 +93,18 @@ const Home: React.FC = () => {
         </Container>
       </div>
 
+      <section className="marquee-band marquee-band-tech">
+        <p className="marquee-heading">Technologies I work with</p>
+        <Marquee label="Technologies I work with" durationSeconds={45}>
+          {techStack.map(({ name, icon: Icon }) => (
+            <li key={name} className="tech-chip">
+              <Icon aria-hidden="true" />
+              <span>{name}</span>
+            </li>
+          ))}
+        </Marquee>
+      </section>
+
       <Container className="py-5">
         <div className="d-flex justify-content-between align-items-end flex-wrap gap-2 mb-4">
           <h2 className="section-title mb-0">Featured Projects</h2>
@@ -108,7 +122,7 @@ const Home: React.FC = () => {
       </Container>
 
       <Container className="pb-5">
-        <div className="availability-section mb-5">
+        <div className="availability-section">
           <div className="availability-header">
             <h3>Open To</h3>
           </div>
@@ -124,6 +138,28 @@ const Home: React.FC = () => {
             ))}
           </Row>
         </div>
+      </Container>
+
+      <section className="marquee-band marquee-band-orgs">
+        <p className="marquee-heading">Where I've worked &amp; been selected</p>
+        <Marquee label="Organizations I have worked with or been selected by" direction="right" durationSeconds={55}>
+          {organizations.map((org) => (
+            <li key={org.name} className="org-chip">
+              {org.logo && (
+                <span className="org-logo">
+                  <img src={org.logo} alt="" loading="lazy" />
+                </span>
+              )}
+              <span className="org-text">
+                <span className="org-name">{org.name}</span>
+                <span className="org-role">{org.role}</span>
+              </span>
+            </li>
+          ))}
+        </Marquee>
+      </section>
+
+      <Container className="py-5">
         <Row className="text-center mb-5">
           {stats.map((stat) => (
             <Col key={stat.label} md={4} className="mb-4 reveal">

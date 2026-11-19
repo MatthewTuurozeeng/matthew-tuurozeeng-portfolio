@@ -1004,3 +1004,160 @@ body {
     transform: none;
   }
 }
+
+
+/* ---------- Marquee strips (Home) ---------- */
+
+.marquee-band {
+  padding: 1.75rem 0 2rem;
+}
+
+.marquee-band-tech {
+  background: #fff;
+  border-bottom: 1px solid #f0e2da;
+}
+
+.marquee-band-orgs {
+  background: #fbf3ee;
+  border-top: 1px solid #f0e2da;
+  border-bottom: 1px solid #f0e2da;
+}
+
+.marquee-heading {
+  text-align: center;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.1rem;
+}
+
+.marquee {
+  overflow: hidden;
+  /* Fade items in and out at both edges */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 40s linear infinite;
+}
+
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0 0.5rem;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid #ecdcd3;
+  border-radius: 999px;
+  background: #fff;
+  color: #374151;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.tech-chip svg {
+  font-size: 1.2rem;
+  color: #6b7280;
+  transition: color 0.2s ease;
+}
+
+.tech-chip:hover,
+.tech-chip:hover svg {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.org-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-height: 76px;
+  padding: 0.7rem 1.4rem 0.7rem 1.1rem;
+  background: #fff;
+  border-left: 3px solid var(--primary);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+}
+
+.org-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  max-width: 130px;
+  flex-shrink: 0;
+}
+
+.org-logo img {
+  max-height: 48px;
+  max-width: 130px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.org-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.org-name {
+  font-weight: 700;
+  color: #1f2937;
+  font-size: 0.95rem;
+}
+
+.org-role {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .marquee-track {
+    animation: none;
+    width: auto;
+    justify-content: center;
+  }
+  .marquee-group {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 0.75rem;
+  }
+  .marquee-duplicate {
+    display: none;
+  }
+}
