@@ -40,7 +40,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       )}
 
       {/* Main Image */}
-      <div style={{ height: '200px', overflow: 'hidden' }}>
+      <div className="card-media" style={{ height: '200px', overflow: 'hidden' }}>
         <ImageWithFallback
           src={imageUrl}
           alt={project.title}

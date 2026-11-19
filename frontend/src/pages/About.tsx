@@ -1,5 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { BsGeoAlt, BsMortarboard, BsAward, BsBriefcase } from 'react-icons/bs';
 import profileData from '../data/Profile';
 import Timeline, { TimelineItem } from '../components/Timeline';
 import certificates from '../data/certificates';
@@ -20,10 +22,26 @@ const About: React.FC = () => {
   const { name, title, bio, profileImage, careerGoals, skills, principles } = profileData;
 
   const skillGroups: Skill[] = [
+    { category: 'Languages', skills: skills.languages },
     { category: 'Frontend', skills: skills.frontend },
-    { category: 'Backend', skills: skills.backend },
+    { category: 'Backend & Cloud', skills: skills.backend },
     { category: 'Databases', skills: skills.databases },
-    { category: 'Tools & Others', skills: skills.tools },
+    { category: 'AI / ML', skills: skills.ai },
+    { category: 'Tools', skills: skills.tools },
+  ];
+
+  const quickFacts = [
+    { icon: <BsGeoAlt />, text: 'Ghana' },
+    { icon: <BsMortarboard />, text: "BSc Computer Science, Ashesi '27" },
+    { icon: <BsAward />, text: 'Mastercard Foundation Scholar' },
+    { icon: <BsBriefcase />, text: 'Open to internships' },
+  ];
+
+  const sections = [
+    { id: 'skills', label: 'Skills' },
+    { id: 'education', label: 'Education' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'certifications', label: 'Certifications' },
   ];
 
   const educationTimeline: TimelineItem[] = [
@@ -31,7 +49,7 @@ const About: React.FC = () => {
       title: 'Ashesi University',
       subtitle: 'BSc. Computer Science',
       duration: '2023 - May 2027 (Expected)',
-      description: 'Focused on full-stack development, data analysis, and building scalable software systems.',
+      description: 'Focused on full-stack development, AI Automation, and building scalable software systems.',
       details: [
         "Dean's List, Spring Semester (2025/2026)",
         'Mastercard Foundation Scholar',
@@ -135,42 +153,56 @@ const About: React.FC = () => {
     <Container className="py-5">
       <h2 className="section-title">About Me</h2>
 
-      <Row className="align-items-center justify-content-center">
-        <Col lg={5} className="text-center mb-4 mb-lg-0">
-          <img src={profileImage} alt={name} className="about-profile-image" />
+      <Row className="align-items-center g-5 about-intro">
+        <Col lg={5} className="text-center">
+          <div className="about-photo-frame">
+            <img src={profileImage} alt={name} className="about-profile-image" />
+            <span className="about-photo-badge">CS @ Ashesi '27</span>
+          </div>
         </Col>
 
         <Col lg={7}>
-          <h3 style={{ color: '#994545' }}>{title}</h3>
+          <p className="about-eyebrow">{title}</p>
+          <h3 className="about-heading">Hi, I'm {name.split(' ')[0]}.</h3>
           <p className="lead">{bio}</p>
-          <p style={{ whiteSpace: 'pre-line' }}>{careerGoals}</p>
+          {careerGoals.split('\n\n').map((paragraph) => (
+            <p key={paragraph.slice(0, 24)} className="about-text">{paragraph}</p>
+          ))}
+
+          <ul className="about-facts">
+            {quickFacts.map((fact) => (
+              <li key={fact.text}>
+                <span className="about-fact-icon">{fact.icon}</span>
+                {fact.text}
+              </li>
+            ))}
+          </ul>
+
+          <div className="d-flex flex-wrap gap-3 mt-4">
+            <a href="/documents/Matthew_Tuurozeeng_Resume.pdf" download className="btn btn-primary-custom">
+              Download Resume
+            </a>
+            <Link to="/contact" className="btn btn-secondary-custom">
+              Contact Me
+            </Link>
+          </div>
         </Col>
       </Row>
 
-      {/* Anchor buttons below the profile section */}
-      <div className="mt-5 flex flex-wrap gap-4">
-        <button
-          onClick={() => scrollTo('education')}
-          className="px-4 py-2 rounded-full border border-[#994545] text-[#994545] hover:bg-[#994545] hover:text-white transition"
-        >
-          Education
-        </button>
-        <button
-          onClick={() => scrollTo('experience')}
-          className="px-4 py-2 rounded-full border border-[#994545] text-[#994545] hover:bg-[#994545] hover:text-white transition"
-        >
-          Experience
-        </button>
-      </div>
+      <nav className="about-section-nav" aria-label="About page sections">
+        {sections.map((section) => (
+          <button key={section.id} type="button" onClick={() => scrollTo(section.id)}>
+            {section.label}
+          </button>
+        ))}
+      </nav>
 
-      <div className="mt-5">
-        <h3 style={{ color: '#994545' }} className="mb-4">
-          Technical Skills
-        </h3>
+      <div id="skills" className="about-section">
+        <h3 className="about-section-title">Technical Skills</h3>
         <Row>
           {skillGroups.map((group) => (
-            <Col key={group.category} md={6} className="mb-4">
-              <h5>{group.category}</h5>
+            <Col key={group.category} md={6} lg={4} className="mb-4">
+              <h5 className="about-skill-group">{group.category}</h5>
               <div>
                 {group.skills.map((skill) => (
                   <span key={skill} className="skill-badge">
@@ -183,11 +215,11 @@ const About: React.FC = () => {
         </Row>
       </div>
 
-      <div className="mt-5">
-        <h3 style={{ color: '#994545' }}>Core Principles</h3>
-        <Row className="mt-4">
+      <div className="about-section">
+        <h3 className="about-section-title">Core Principles</h3>
+        <Row>
           {principles.map((principle: Principle) => (
-            <Col key={principle.title} md={4} className="mb-3">
+            <Col key={principle.title} md={4} className="mb-3 reveal">
               <Card className="card-custom">
                 <Card.Body>
                   <h5 style={{ color: principle.color || '#994545' }}>{principle.title}</h5>
@@ -199,23 +231,21 @@ const About: React.FC = () => {
         </Row>
       </div>
 
-      <div id="education" className="mt-5">
-        <h3 className="text-[#994545] text-2xl font-semibold mb-4">Education</h3>
+      <div id="education" className="about-section">
+        <h3 className="about-section-title">Education</h3>
         <Timeline items={educationTimeline} variant="education" />
       </div>
 
-      <div id="experience" className="mt-5">
-        <h3 className="text-[#994545] text-2xl font-semibold mb-4">Work Experience</h3>
+      <div id="experience" className="about-section">
+        <h3 className="about-section-title">Work Experience</h3>
         <Timeline items={experienceTimeline} variant="experience" />
       </div>
 
-      <div className="mt-5">
-        <h3 style={{ color: '#994545' }} className="mb-4">
-          Certifications & Programs
-        </h3>
+      <div id="certifications" className="about-section">
+        <h3 className="about-section-title">Certifications & Programs</h3>
         <Row className="g-4">
           {certificates.map((certificate) => (
-            <Col key={certificate.id} md={6} lg={4}>
+            <Col key={certificate.id} md={6} lg={4} className="reveal">
               <CertificateCard certificate={certificate} />
             </Col>
           ))}

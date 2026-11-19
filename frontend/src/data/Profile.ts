@@ -7,16 +7,16 @@ const profileData: Profile = {
 I enjoy building platforms that empower communities, streamline workflows, and scale with modern cloud tooling.`,  
   profileImage: '/assets/images/profileImage/profile-photo.jpg',
   skills: {
-    frontend: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Bootstrap'],
-    backend: ['Node.js', 'Express', 'PHP', 'Supabase'],
-    databases: ['MongoDB', 'PostgreSQL', 'MySQL'],
-    tools: ['PlantUML', 'Trello', 'GitHub Actions', 'Figma'],
+    languages: ['Python', 'Java', 'JavaScript', 'TypeScript', 'SQL', 'C++'],
+    frontend: ['React', 'React Native', 'Next.js', 'Tailwind CSS', 'Bootstrap'],
+    backend: ['Node.js', 'Express', 'REST APIs', 'Supabase', 'Firebase', 'PHP'],
+    databases: ['PostgreSQL', 'MySQL', 'MongoDB', 'ChromaDB'],
+    ai: ['Machine Learning', 'NLP', 'RAG', 'Streamlit', 'Teachable Machine'],
+    tools: ['Git & GitHub', 'GitHub Actions', 'Vercel', 'Figma', 'PlantUML', 'Trello'],
   },
-  careerGoals:
-    `Matthew Tuurozeeng is a Computer Science (BSc.) student at Ashesi University and a Mastercard Foundation Scholar, driven by a strong commitment to social impact and Africa's economic transformation. 
-    Matthew loves building full-stack products that balance frontend polish with backend reliability.
-    He currently co-found Sensorba LTD to pair software thinking with entrepreneurship and often prototypes web tools that streamline how small teams work.
-    Matthew's interests span mentoring young learners, designing inclusive tech, and experimenting with data storytelling; away from the keyboard he sketches UI ideas, shoots street photography, and listens to TV talk shows to recharge.`,
+  careerGoals: `I'm a Computer Science student at Ashesi University and a Mastercard Foundation Scholar, driven by social impact and Africa's economic transformation. I love building full-stack products that balance a polished frontend with a reliable backend.
+
+I co-founded Sensorba LTD, where I pair software thinking with entrepreneurship, and I often build web tools that help small teams work better. I'm also passionate about mentoring young learners, designing inclusive technology, and data storytelling. Away from the keyboard, I unwind with listening to tech news and political talk shows.`,
   principles: [
     {
       title: 'People-first Engineering',
