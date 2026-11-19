@@ -26,7 +26,7 @@ const impactData: ImpactInitiative[] = [
     link: '',
     featured: true,
     published: true,
-    order: 1,
+    order: 2,
   },
   {
     id: 'impact-fyby',
@@ -55,7 +55,7 @@ const impactData: ImpactInitiative[] = [
     link: '',
     featured: true,
     published: true,
-    order: 2,
+    order: 4,
   },
   {
     id: 'impact-millennium',
@@ -114,7 +114,7 @@ const impactData: ImpactInitiative[] = [
     link: '',
     featured: false,
     published: true,
-    order: 4,
+    order: 5,
   },
   {
     id: 'impact-peer-coach',
@@ -132,7 +132,7 @@ const impactData: ImpactInitiative[] = [
     link: '',
     featured: false,
     published: true,
-    order: 5,
+    order: 1,
   },
 ];
 
