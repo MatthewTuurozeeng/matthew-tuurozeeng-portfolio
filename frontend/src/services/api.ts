@@ -57,9 +57,11 @@ export interface Profile {
   bio: string;
   profileImage: string;
   skills: {
+    languages: string[];
     frontend: string[];
     backend: string[];
     databases: string[];
+    ai: string[];
     tools: string[];
   };
   careerGoals: string;

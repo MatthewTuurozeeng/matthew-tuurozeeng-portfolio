@@ -20,7 +20,8 @@ const Timeline: React.FC<TimelineProps> = ({ items, variant = 'education' }) => 
   return (
     <div className="timeline-wrapper space-y-8">
       {items.map((item, idx) => (
-        <div key={`${item.title}-${idx}`} className="timeline-card animate-fadeIn">
+        <div key={`${item.title}-${idx}`} className="reveal">
+        <div className="timeline-card">
           <span className="timeline-dot" />
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
             <div className="timeline-meta">
@@ -77,6 +78,7 @@ const Timeline: React.FC<TimelineProps> = ({ items, variant = 'education' }) => 
               ) : null}
             </div>
           ) : null}
+        </div>
         </div>
       ))}
     </div>

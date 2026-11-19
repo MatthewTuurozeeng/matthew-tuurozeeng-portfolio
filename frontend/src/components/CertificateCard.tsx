@@ -7,7 +7,7 @@ interface CertificateCardProps {
 
 const CertificateCard: React.FC<CertificateCardProps> = ({ certificate }) => {
   return (
-    <div className="certificate-card animate-fadeIn">
+    <div className="certificate-card">
       {certificate.assetUrl && certificate.assetType === 'image' ? (
         <a
           className="certificate-media"

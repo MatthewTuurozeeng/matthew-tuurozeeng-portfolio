@@ -6,6 +6,7 @@ import profileData from '../data/Profile';
 import projectsData from '../data/Projects';
 import impactData from '../data/Impact';
 import ProjectCard from '../components/ProjectCard';
+import CountUp from '../components/CountUp';
 import fullstackImg from "/assets/images/homeImages/full-stack.jpg";
 import learningImg from "/assets/images/homeImages/learning.jpg";
 import innovationImg from "/assets/images/homeImages/innovate.jpg";
@@ -16,7 +17,7 @@ const Home: React.FC = () => {
   const stats = [
     { label: 'Projects Built', value: projectsData.length },
     { label: 'Impact Initiatives', value: impactData.length },
-    { label: 'Technologies Used', value: profileData.skills.frontend.length + profileData.skills.backend.length + profileData.skills.databases.length + profileData.skills.tools.length },
+    { label: 'Technologies Used', value: Object.values(profileData.skills).flat().length },
   ];
 
   const featuredProjects = projectsData
@@ -48,7 +49,7 @@ const Home: React.FC = () => {
         }}
       >
         <Container>
-          <div className="mb-4">
+          <div className="mb-4 hero-anim">
             <img
               src={profileImage || PROFILE_IMAGE}
               alt={name}
@@ -66,11 +67,11 @@ const Home: React.FC = () => {
             />
           </div>
 
-          <h1 className="display-3 fw-bold mb-2">{name}</h1>
-          <h3 className="fw-semibold mb-4">{title}</h3>
-          <p className="lead mb-5">{bio}</p>
+          <h1 className="display-3 fw-bold mb-2 hero-anim hero-anim-1">{name}</h1>
+          <h3 className="fw-semibold mb-4 hero-anim hero-anim-2">{title}</h3>
+          <p className="lead mb-5 hero-anim hero-anim-3">{bio}</p>
 
-          <div className="d-flex gap-3 justify-content-center flex-wrap">
+          <div className="d-flex gap-3 justify-content-center flex-wrap hero-anim hero-anim-4">
             <Button onClick={() => navigate('/projects')} className="btn-primary-custom" size="lg">
               View Projects
             </Button>
@@ -99,7 +100,7 @@ const Home: React.FC = () => {
         </div>
         <Row className="g-4">
           {featuredProjects.map((project) => (
-            <Col key={project.id} md={6} lg={4}>
+            <Col key={project.id} md={6} lg={4} className="reveal">
               <ProjectCard project={project} />
             </Col>
           ))}
@@ -113,7 +114,7 @@ const Home: React.FC = () => {
           </div>
           <Row className="g-3">
             {openTo.map((item) => (
-              <Col key={item.title} md={4}>
+              <Col key={item.title} md={4} className="reveal">
                 <div className="open-to-card">
                   <h4>{item.title}</h4>
                   <p>{item.focus}</p>
@@ -125,10 +126,10 @@ const Home: React.FC = () => {
         </div>
         <Row className="text-center mb-5">
           {stats.map((stat) => (
-            <Col key={stat.label} md={4} className="mb-4">
+            <Col key={stat.label} md={4} className="mb-4 reveal">
               <div className="p-4 shadow-sm rounded" style={{ background: '#fff5f5' }}>
                 <div style={{ fontSize: '3rem', color: '#994545', fontWeight: 700 }}>
-                  {stat.value}+
+                  <CountUp value={`${stat.value}+`} />
                 </div>
                 <p className="fw-semibold mb-0">{stat.label}</p>
               </div>
@@ -140,7 +141,7 @@ const Home: React.FC = () => {
       <Container className="py-5">
   <Row className="text-center">
 
-    <Col md={4} className="mb-4">
+    <Col md={4} className="mb-4 reveal">
       <div className="feature-card">
         <img
           src={fullstackImg}
@@ -158,7 +159,7 @@ const Home: React.FC = () => {
       </div>
     </Col>
 
-    <Col md={4} className="mb-4">
+    <Col md={4} className="mb-4 reveal">
       <div className="feature-card">
         <img
           src={learningImg}
@@ -177,7 +178,7 @@ const Home: React.FC = () => {
       </div>
     </Col>
 
-    <Col md={4} className="mb-4">
+    <Col md={4} className="mb-4 reveal">
       <div className="feature-card">
         <img
           src={innovationImg}

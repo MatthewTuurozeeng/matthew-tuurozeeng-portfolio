@@ -58,7 +58,7 @@ const Projects: React.FC = () => {
       ) : (
         <Row>
           {filtered.map((project) => (
-            <Col key={project.id} lg={4} md={6} className="mb-4">
+            <Col key={project.id} lg={4} md={6} className="mb-4 reveal">
               <ProjectCard project={project} />
             </Col>
           ))}
