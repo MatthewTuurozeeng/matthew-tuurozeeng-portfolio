@@ -49,6 +49,8 @@ export interface ContactFormData {
   email: string;
   subject: string;
   message: string;
+  /** Spam honeypot; real visitors leave it empty */
+  botcheck?: boolean | string;
 }
 
 export interface Profile {

@@ -109,7 +109,7 @@ const CV: React.FC = () => {
                 <div className="contact-info">
                   <p>Cantonments PMB 13, Ashesi University</p>
                   <p>+233543317402 / Ghanaian</p>
-                  <p>tuurozeeng.matthew@ashesi.edu.gh</p>
+                  <p>tuurozeengmatthew@gmail.com</p>
                   <p>
                     <a href="https://www.linkedin.com/in/matthewtuurozeeng/" target="_blank" rel="noopener noreferrer">
                       linkedin.com/in/matthewtuurozeeng/
@@ -755,7 +755,7 @@ const CV: React.FC = () => {
             Download Resume
           </a>
           <Button 
-            href="mailto:tuurozeeng.matthew@ashesi.edu.gh?subject=Job Opportunity&body=Hi Matthew, I reviewed your CV and would like to discuss..." 
+            href="mailto:tuurozeengmatthew@gmail.com?subject=Job Opportunity&body=Hi Matthew, I reviewed your CV and would like to discuss..." 
             className="btn btn-secondary-custom"
             variant="outline-success"
           >
