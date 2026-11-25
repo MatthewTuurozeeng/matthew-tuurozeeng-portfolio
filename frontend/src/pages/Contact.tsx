@@ -77,11 +77,12 @@ const Contact: React.FC = () => {
           </p>
 
           <div className="contact-availability">
-            <span className="contact-status-dot" aria-hidden="true" />
-            <div>
-              <strong>Open to internships now</strong>
-              <span>Full-time roles from May 2027 · I usually reply within 24–48 hours</span>
-            </div>
+            <span className="contact-status-pill">
+              <span className="contact-status-dot" aria-hidden="true" />
+              Available now
+            </span>
+            <strong>Open to internships and any real world project engagements</strong>
+            <span className="contact-availability-sub">Full-time roles from May 2027</span>
           </div>
 
           <div className="contact-card">
@@ -136,7 +137,7 @@ const Contact: React.FC = () => {
               ) : (
                 <>
                   <h4 className="contact-form-title">Send a Message</h4>
-                  <p className="contact-form-subtitle">It goes straight to my inbox.</p>
+                  <p className="contact-form-subtitle">It goes to my inbox.</p>
 
                   {status === 'error' && (
                     <div className="alert alert-danger" role="alert">
