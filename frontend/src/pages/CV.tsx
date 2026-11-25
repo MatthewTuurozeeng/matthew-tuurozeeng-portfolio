@@ -350,17 +350,17 @@ const CV: React.FC = () => {
 
                 <div className="entry">
                   <div className="left">
-                    <strong>Matthew Tuurozeeng Professional Portfolio</strong> - Accra, Ghana <br />
-                    <b>Full-Stack Product Owner & Developer</b>
+                    <strong>Matthew Tuurozeeng Personal Portfolio</strong> - Accra, Ghana <br />
+                    <b>Frontend Developer</b>
                     <ul>
                       <li>
-                        Architected a full-stack portfolio with an admin dashboard and REST API, shipping 15+ reusable components and accelerating future project launches.
+                        Built a static React and TypeScript single-page portfolio with six pages, driven by typed data files so content updates ship with a single commit.
                       </li>
                       <li>
-                        Implemented a static-data fallback plus WhatsApp contact automation, enabling recruiters to reach me instantly even without a backend.
+                        Implemented a Web3Forms contact form with an email-app fallback, plus one-click email copy and WhatsApp links so recruiters can reach me instantly.
                       </li>
                       <li>
-                        Deployed the Vite/React frontend to Vercel with CI-ready tooling, achieving sub-1s First Contentful Paint on desktop and mobile.
+                        Added scroll-reveal and count-up animations that respect reduced-motion settings, and deploy to Vercel from main through reviewed pull requests.
                       </li>
                     </ul>
                   </div>
