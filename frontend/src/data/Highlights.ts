@@ -1,7 +1,7 @@
 import type { IconType } from 'react-icons';
 import {
   SiReact, SiTypescript, SiJavascript, SiPython, SiOpenjdk, SiNodedotjs, SiExpress,
-  SiNextdotjs, SiTailwindcss, SiSupabase, SiFirebase, SiPostgresql, SiMysql, SiMongodb,
+  SiNextdotjs, SiTailwindcss, SiSupabase, SiPostgresql, SiMysql, SiMongodb,
   SiGit, SiGithubactions, SiVercel, SiFigma, SiStreamlit, SiVite,
 } from 'react-icons/si';
 
@@ -25,7 +25,6 @@ export const techStack: TechItem[] = [
   { name: 'Tailwind CSS', icon: SiTailwindcss },
   { name: 'MongoDB', icon: SiMongodb },
   { name: 'MySQL', icon: SiMysql },
-  { name: 'Firebase', icon: SiFirebase },
   { name: 'Streamlit', icon: SiStreamlit },
   { name: 'Vite', icon: SiVite },
   { name: 'Git', icon: SiGit },
