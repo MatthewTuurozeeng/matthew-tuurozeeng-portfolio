@@ -57,17 +57,17 @@ const projectsData: Project[] = [
 
   {
     id: 'proj-portfolio',
-    title: 'Personal Professional Platform',
+    title: 'Personal Portfolio Website',
     description:
-      'A full-stack portfolio platform with custom admin dashboard, media uploads, and dynamic content management.',
-    technologies: ['React', 'Vite', 'TypeScript', 'Node.js', 'MongoDB', 'Cloudinary', 'Vercel'],
+      'The site you are on: a fast, static React and TypeScript single-page app with Home, About, Projects, Impact, CV and Contact pages. Content lives in typed data files, so an update ships with a single commit. Includes a Web3Forms contact form with an email-app fallback, and subtle scroll and count-up animations that respect reduced-motion settings. Deployed on Vercel from main through reviewed pull requests.',
+    technologies: ['React', 'TypeScript', 'Vite', 'React Bootstrap', 'React Router', 'React Hook Form', 'Web3Forms', 'Vercel'],
     category: 'web',
-    status: 'in-progress',
+    status: 'completed',
     image: '/assets/images/projectImages/Personal_Portfolio.png',
     images: ['/assets/images/projectImages/Personal_Portfolio.png'],
     screenshots: [],
     githubUrl: 'https://github.com/MatthewTuurozeeng/matthew-tuurozeeng-portfolio',
-    liveUrl: '', // https://matthew-portfolio.dev
+    liveUrl: 'https://matthew-tuurozeeng.vercel.app',
     featured: false,
     published: true,
     order: 4,
@@ -77,7 +77,7 @@ const projectsData: Project[] = [
     title: 'School Website',
     description:
       'A modern, responsive web application for managing school admissions, enquiries, and information for Machris Christian Academy, Nadowli, Ghana. It provides essential information to parents, students, and the community Streamline the admission application process and enable efficient communication through an enquiry system Offer administrative tools for managing applications and content',
-    technologies: [' React Next.js', 'Bootstrap', 'Node.js Express', 'MySQL database', 'Railway', 'Cloudinary', 'Vercel', 'Render'],
+    technologies: ['React', 'Vite', 'Bootstrap', 'Node.js', 'Express', 'MySQL', 'Railway', 'Cloudinary', 'Vercel', 'Render'],
     category: 'web',
     status: 'completed',
     image: '/assets/images/projectImages/School_Website.png',
