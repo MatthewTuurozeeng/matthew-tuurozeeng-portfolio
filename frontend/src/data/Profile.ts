@@ -9,7 +9,7 @@ I enjoy building platforms that empower communities, streamline workflows, and s
   skills: {
     languages: ['Python', 'Java', 'JavaScript', 'TypeScript', 'SQL', 'C++'],
     frontend: ['React', 'React Native', 'Next.js', 'Tailwind CSS', 'Bootstrap'],
-    backend: ['Node.js', 'Express', 'REST APIs', 'Supabase', 'Firebase', 'PHP'],
+    backend: ['Node.js', 'Express', 'REST APIs', 'Supabase', 'PHP'],
     databases: ['PostgreSQL', 'MySQL', 'MongoDB', 'ChromaDB'],
     ai: ['Machine Learning', 'NLP', 'RAG', 'Streamlit', 'Teachable Machine'],
     tools: ['Git & GitHub', 'GitHub Actions', 'Vercel', 'Figma', 'PlantUML', 'Trello'],
